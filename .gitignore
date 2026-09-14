@@ -1,3 +1,5 @@
-# Cada projeto de jogo é um repositório próprio — aqui só ficam os documentos
-# compartilhados. Ignora todas as subpastas.
-/*/
+# Cache de importação do Godot — regenerado automaticamente
+.godot/
+
+# Backups do auto-updater do plugin Godot AI
+addons/.godot_ai_update/
