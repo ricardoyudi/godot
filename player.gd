@@ -3,6 +3,9 @@ extends Area2D
 
 signal hit
 
+const ANIM_WALK := &"walk"
+const ANIM_UP := &"up"
+
 @export var speed: int = 400
 var screen_size: Vector2
 
@@ -33,11 +36,11 @@ func _process(delta: float) -> void:
 	position = position.clamp(Vector2.ZERO, screen_size)
 
 	if velocity.x != 0:
-		sprite.animation = "walk"
+		sprite.animation = ANIM_WALK
 		sprite.flip_v = false
 		sprite.flip_h = velocity.x < 0
 	elif velocity.y != 0:
-		sprite.animation = "up"
+		sprite.animation = ANIM_UP
 		sprite.flip_v = velocity.y > 0
 
 func start(pos: Vector2) -> void:

@@ -1,7 +1,11 @@
-class_name Main
 extends Node
 
+const MOBS_GROUP := &"mobs"
+
 @export var mob_scene: PackedScene
+@export var mob_speed_min: float = 150.0
+@export var mob_speed_max: float = 250.0
+@export var mob_angle_spread: float = PI / 4
 
 var score: int = 0
 
@@ -23,14 +27,13 @@ func game_over() -> void:
 	var new_record := GameState.submit_score(score)
 	hud.show_game_over(new_record, GameState.high_score)
 
-
 func new_game() -> void:
 	score = 0
 	player.start(start_position.position)
 	start_timer.start()
 	hud.update_score(score)
 	hud.show_message("Get Ready")
-	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group(MOBS_GROUP, "queue_free")
 	music.play()
 
 func _on_start_timer_timeout() -> void:
@@ -49,10 +52,10 @@ func _on_mob_timer_timeout() -> void:
 	var direction: float = spawn_location.rotation + PI / 2
 	mob.position = spawn_location.position
 
-	direction += randf_range(-PI / 4, PI / 4)
+	direction += randf_range(-mob_angle_spread, mob_angle_spread)
 	mob.rotation = direction
 
-	var velocity := Vector2(randf_range(150.0, 250.0), 0.0)
+	var velocity := Vector2(randf_range(mob_speed_min, mob_speed_max), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
 
 	add_child(mob)

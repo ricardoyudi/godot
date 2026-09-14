@@ -3,6 +3,8 @@ extends CanvasLayer
 
 signal start_game
 
+@export var start_button_delay: float = 1.0
+
 @onready var message: Label = $Message
 @onready var score_label: Label = $ScoreLabel
 @onready var start_button: Button = $StartButton
@@ -24,7 +26,7 @@ func show_game_over(new_record: bool, high_score: int) -> void:
 	message.text = "Dodge the\nCreeps!"
 	message.show()
 
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(start_button_delay).timeout
 	start_button.show()
 
 func update_score(value: int) -> void:
