@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d16jyqkrpoags"]
 
-[ext_resource type="FontFile" uid="uid://fnc7tk0farvj" path="res://fonts/Xolonium-Regular.ttf" id="1_37p78"]
-[ext_resource type="Script" uid="uid://be7jgscaxpcra" path="res://hud.gd" id="1_64ctp"]
+[ext_resource type="FontFile" uid="uid://fnc7tk0farvj" path="res://assets/fonts/Xolonium-Regular.ttf" id="1_37p78"]
+[ext_resource type="Script" uid="uid://be7jgscaxpcra" path="res://ui/hud.gd" id="1_64ctp"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_272bh"]
 action = &"ui_accept"
