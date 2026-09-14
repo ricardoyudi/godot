@@ -72,3 +72,19 @@ Regras:
 - Para isso, regra de jogo em classes puras (`RefCounted`/`Resource`), fora dos
   nós — domínio separado do "controller", como no backend Java.
 - `git init` no primeiro dia de qualquer projeto novo.
+
+## Repositório
+Tudo vive em **um repositório**: `github.com/ricardoyudi/godot`, raiz local
+`~/Desenvolvimento/workspace/godot`. Cada jogo é uma pasta; `godot-claude.md` e
+o `README.md` ficam na raiz. **Não criar repositório novo por jogo.**
+
+Mensagem de commit prefixada com o jogo (`dodge-the-creeps: ...`) e **um commit
+não mistura dois jogos** — é o que mantém o log legível num monorepo.
+
+## Criar projeto novo — nesta ordem
+1. Criar o projeto pelo Project Manager do Godot em `workspace/godot/<jogo>/`.
+2. Abrir no editor **uma vez** — o plugin registra o MCP para esse caminho.
+3. Criar `<jogo>/CLAUDE.md` com `@../godot-claude.md` + 2 linhas sobre o jogo.
+4. Acrescentar a linha do jogo na tabela de projetos do README da raiz.
+5. **Só então** iniciar a sessão do Claude dentro da pasta do jogo.
+6. Commitar. O `.gitignore` da raiz já cobre `.godot/`.
